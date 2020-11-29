@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: "Billionaire";
+  src: url("../assets/fonts/BillionaireMediumGrunge.otf");
+}
+@font-face {
+  font-family: "Park Lane";
+  src: url("../assets/fonts/ParkLaneNf-pRdR.ttf");
+}
+@font-face {
+  font-family: "Market Deco";
+  src: url("../assets/fonts/Market_Deco.ttf");
+}
+
+$border-svg: url(../assets/border.svg);
+$frame-svg: url(../assets/frame.svg);
+$accent-frame-svg: url("../assets/accent\ frame.svg");
+$accent-frame-png: url("../assets/accent\ frame.png");
+
+// Colours
+$background-color: #393f37;
+$yellow: #cb9947;
+$gold: linear-gradient(to right, #cc9a49, #f6dc81, #cc9a49, #f6dc81, #cc9a49);
+
+// Fonts
+$title-font: "Park Lane", cursive;
+$subtitle-font: "Billionaire", cursive;
+$body-font: "Market Deco", sans-serif;
+
+// Device Sizes
+$on-palm: 600px !default;
+$on-laptop: 800px !default;
+
+// Use media queries like this:
+// @include media-query($on-palm) {
+//   .wrapper {
+//     padding-right: $spacing-unit / 2;
+//     padding-left: $spacing-unit / 2;
+//   }
+// }
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+// @mixin relative-font-size($ratio) {
+//   font-size: $base-font-size * $ratio;
+// }
