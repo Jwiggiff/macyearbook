@@ -7,16 +7,16 @@ layout: home
 
 <h1 class="page-title">Welcome to the Mackenzie Yearbook for 2020-21!</h1>
 
-<div class="cards container center">
+{%- for collection in site.collections -%}
+<li>{{collection.label}}</li>
+{%- endfor -%}
+
+<div class="cards">
   {%- for path in site.header_pages -%}
-    {%- assign my_page = site.pages | where: "path", path | first -%}
-    <a href="{{ my_page.permalink | relative_url }}">
-      <div class="card">
-        <div class="card-bg">
-          <img src="https://images.unsplash.com/photo-1581283869631-baae04233b04?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=634&q=80">
-        </div>
-        <div class="card-title">{{ my_page.title }}</div>
-      </div>
-    </a>
+  <a href="{{ my_page.url | relative_url }}">
+    <div class="card">
+      <div class="card-title">{{ my_page.title }}</div>
+    </div>
+  </a>
   {%- endfor -%}
 </div>
