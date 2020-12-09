@@ -1,7 +1,10 @@
 <header class="site-header" role="banner">
 
   <nav class="site-nav">
-    <a class="site-title" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+    <a class="site-title" href="{{ "/" | relative_url }}">
+      <img src="/assets/img/lion.png">
+      {{ site.title | escape }}
+    </a>
 
     {%- assign categories = site.collections | where_exp: "collection", "collection.label != 'posts'" -%}
     {% if categories.size > 0 %}
