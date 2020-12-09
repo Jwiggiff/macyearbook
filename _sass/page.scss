@@ -1,0 +1,155 @@
+/* Page Content */
+.page-content {
+  flex: 1;
+  margin: 1rem;
+  padding: 1rem 2rem;
+  border: 10px solid transparent;
+  border-image: $border-svg 230 round;
+  color: $white;
+
+  .page-title {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    padding: 0 5rem;
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: $gold;
+
+    @include media-query($on-palm) {
+      font-size: 2rem;
+      padding: 0;
+    }
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    // grid-template-rows: repeat(auto-fill, minmax(160px, auto));
+    grid-template-rows: repeat(auto-fill, minmax(160px, 200px));
+    // grid-template-rows: repeat(auto-fill, minmax(160px, 1fr));
+    grid-gap: 2rem;
+    grid-auto-flow: dense;
+
+    figure {
+      width: 100%;
+      height: 100%;
+    }
+
+    video,
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    figure:nth-child(4n) {
+      border: 2px solid $yellow;
+      outline: none;
+      background-color: $yellow;
+    }
+
+    .col-1 {
+      grid-column: span 1;
+    }
+    .col-2 {
+      grid-column: span 2;
+    }
+    .col-3 {
+      grid-column: span 3;
+    }
+    .col-4 {
+      grid-column: span 4;
+    }
+    .col-5 {
+      grid-column: span 5;
+    }
+    .col-6 {
+      grid-column: span 6;
+    }
+    .row-1 {
+      grid-row: span 1;
+    }
+    .row-2 {
+      grid-row: span 2;
+    }
+    .row-3 {
+      grid-row: span 3;
+    }
+  }
+
+  .frame {
+    box-shadow: 0 0 4px 8px rgba($yellow, 0.2);
+  }
+
+  .cards {
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 4rem;
+
+    a {
+      text-decoration: none;
+      color: $black;
+    }
+  }
+
+  .card {
+    text-align: center;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: transform 0.2s ease;
+    background-image: $gold;
+
+    .card-title {
+      font-size: 3rem;
+      font-family: $subtitle-font;
+      padding: 0.25rem 0.5rem;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  figure {
+    position: relative;
+    display: flex;
+    height: min-content;
+
+    img,
+    video {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    figcaption {
+      background-color: $white;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.25rem 0.5rem;
+      position: absolute;
+      font-family: $subtitle-font;
+      box-shadow: -4px -4px 4px rgba(0, 0, 0, 0.2),
+        4px 4px 4px rgba(0, 0, 0, 0.2);
+      color: black;
+
+      &.bottom {
+        bottom: -1rem;
+      }
+      &.top {
+        top: -1rem;
+      }
+      &.left {
+        left: -1rem;
+      }
+      &.right {
+        right: -1rem;
+      }
+    }
+  }
+}

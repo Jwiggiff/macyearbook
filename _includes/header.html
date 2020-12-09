@@ -3,7 +3,7 @@
   <nav class="site-nav">
     <a class="site-title" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
 
-    {%- assign categories = site.collections -%}
+    {%- assign categories = site.collections | where_exp: "collection", "collection.label != 'posts'" -%}
     {% if categories.size > 0 %}
       <input class="nav-trigger" id="nav-trigger" type="checkbox"/>
       <label for="nav-trigger">
@@ -17,11 +17,18 @@
       <div class="trigger">
 
         {%- for category in categories -%}
-          {%- for page in category.docs -%}
-            {%- if page.title -%}
-              <a class="page-link" href="{{ page.url | relative_url }}">{{ page.title | escape }}</a>
-            {%- endif -%}
-          {%- endfor -%}
+          <li>
+            <a class="page-link" href="#">{{ category.label | capitalize }}</a>
+            <ul class="dropdown">
+              {%- for page in category.docs -%}
+                {%- if page.title -%}
+                  <li>
+                    <a class="page-link" href="{{ page.url | relative_url }}">{{ page.title | capitalize | escape }}</a>
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          </li>
         {%- endfor -%}
       </div>
     {%- endif -%}

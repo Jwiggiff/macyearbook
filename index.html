@@ -1,22 +1,15 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
 layout: home
 ---
 
 <h1 class="page-title">Welcome to the Mackenzie Yearbook for 2020-21!</h1>
 
-{%- for collection in site.collections -%}
-<li>{{collection.label}}</li>
-{%- endfor -%}
-
 <div class="cards">
-  {%- for path in site.header_pages -%}
-  <a href="{{ my_page.url | relative_url }}">
+  {%- for collection in site.collections -%} {%- for page in collection.docs -%}
+  <a href="{{ page.url | relative_url }}">
     <div class="card">
-      <div class="card-title">{{ my_page.title }}</div>
+      <div class="card-title">{{ page.title }}</div>
     </div>
   </a>
-  {%- endfor -%}
+  {%- endfor -%} {%- endfor -%}
 </div>

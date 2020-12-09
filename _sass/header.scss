@@ -1,0 +1,157 @@
+/* Site Header */
+.site-header {
+  position: relative;
+  padding: 0.25rem 0.5rem;
+  background-image: $gold;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  height: 64px;
+}
+.site-title {
+  font-family: $title-font;
+  font-size: 3rem;
+  text-decoration: none;
+  color: $black;
+
+  @include media-query($on-palm) {
+    font-size: 1.75rem;
+  }
+}
+.site-nav {
+  margin: auto;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3rem;
+  width: 100%;
+  height: 100%;
+
+  .nav-trigger {
+    display: none;
+  }
+  .menu-icon {
+    display: none;
+  }
+
+  .trigger {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .trigger > li > .page-link::after {
+    content: url(/assets/img/chevron-down.svg);
+    width: 1rem;
+    height: 1rem;
+    display: flex;
+    align-items: center;
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+  }
+  .trigger > li.active > .page-link::after {
+    transform: rotate(180deg);
+  }
+
+  li {
+    list-style: none;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+
+    &:not(:last-child) {
+      margin-right: 2rem;
+    }
+
+    .page-link {
+      font-family: $subtitle-font;
+      text-decoration: none;
+      color: $black;
+      font-size: 1.5rem;
+      white-space: nowrap;
+
+      display: flex;
+      align-items: center;
+    }
+
+    ul.dropdown {
+      display: none;
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      top: 100%;
+      padding: 0.5rem 1rem;
+      background-color: $white;
+      border-radius: 5px;
+    }
+
+    &.active > ul.dropdown {
+      visibility: visible;
+      opacity: 1;
+      display: block;
+    }
+  }
+
+  @include media-query($on-laptop) {
+    padding: 0;
+
+    label[for="nav-trigger"] {
+      line-height: 0;
+      display: block;
+      z-index: 2;
+      cursor: pointer;
+
+      position: relative;
+      top: 0;
+      right: 0;
+    }
+    .menu-icon {
+      display: block;
+      height: 100%;
+    }
+
+    input ~ .trigger {
+      display: none;
+    }
+    input:checked ~ .trigger {
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: auto;
+      background-image: $gold;
+    }
+
+    li:not(:last-child) {
+      margin-right: 0;
+    }
+
+    li {
+      margin-bottom: 1rem;
+    }
+
+    .trigger > li > .page-link::after {
+      left: calc(100% - 2rem);
+      top: 0.5rem;
+    }
+
+    .page-link {
+      display: block;
+      text-align: center;
+    }
+
+    li ul.dropdown {
+      width: 100%;
+      position: relative;
+      background-color: transparent;
+      border-top: 1px solid $black;
+      border-radius: 0;
+      margin-top: 0.5rem;
+    }
+  }
+}

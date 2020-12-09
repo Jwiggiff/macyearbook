@@ -2,21 +2,21 @@
 
 @font-face {
   font-family: "Park Lane";
-  src: url("../assets/fonts/ParkLaneNf-pRdR.ttf");
+  src: url("/assets/fonts/ParkLaneNf-pRdR.ttf");
 }
 @font-face {
   font-family: "Market Deco";
-  src: url("../assets/fonts/Market_Deco.ttf");
+  src: url("/assets/fonts/Market_Deco.ttf");
 }
 @font-face {
   font-family: "Javanese";
-  src: url("../assets/fonts/javatext.ttf");
+  src: url("/assets/fonts/javatext.ttf");
 }
 
-$border-svg: url(../assets/border.svg);
-$frame-svg: url(../assets/frame.svg);
-$accent-frame-svg: url("../assets/accent\ frame.svg");
-$accent-frame-png: url("../assets/accent\ frame.png");
+$border-svg: url(/assets/img/border.svg);
+$frame-svg: url(/assets/img/frame.svg);
+$accent-frame-svg: url("/assets/img/accent\ frame.svg");
+$accent-frame-png: url("/assets/img/accent\ frame.png");
 
 // Colours
 $dark-bg: #0f1911;
