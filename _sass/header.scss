@@ -18,10 +18,10 @@
 
   img {
     height: 100%;
-  }
-
-  @include media-query($on-palm) {
-    font-size: 1.75rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scale(-1, 1);
   }
 }
 .site-nav {
@@ -105,21 +105,20 @@
   }
 
   @include media-query($on-laptop) {
-    padding: 0;
+    padding: 0 1rem 0 3rem;
 
     label[for="nav-trigger"] {
-      line-height: 0;
       display: block;
       z-index: 2;
       cursor: pointer;
-
-      position: relative;
-      top: 0;
-      right: 0;
+      height: 50%;
     }
     .menu-icon {
       display: block;
       height: 100%;
+      svg {
+        height: 100%;
+      }
     }
 
     input ~ .trigger {
