@@ -1,32 +1,38 @@
 @charset "utf-8";
 
 @font-face {
-  font-family: "Billionaire";
-  src: url("../assets/fonts/BillionaireMediumGrunge.otf");
-}
-@font-face {
   font-family: "Park Lane";
-  src: url("../assets/fonts/ParkLaneNf-pRdR.ttf");
+  src: url("/assets/fonts/ParkLaneNf-pRdR.ttf");
 }
 @font-face {
   font-family: "Market Deco";
-  src: url("../assets/fonts/Market_Deco.ttf");
+  src: url("/assets/fonts/Market_Deco.ttf");
+}
+@font-face {
+  font-family: "Javanese";
+  src: url("/assets/fonts/javatext.ttf");
 }
 
-$border-svg: url(../assets/border.svg);
-$frame-svg: url(../assets/frame.svg);
-$accent-frame-svg: url("../assets/accent\ frame.svg");
-$accent-frame-png: url("../assets/accent\ frame.png");
+$border-svg: url(/assets/img/border.svg);
+$frame-svg: url(/assets/img/frame.svg);
+$accent-frame-svg: url("/assets/img/accent\ frame.svg");
+$accent-frame-png: url("/assets/img/accent\ frame.png");
 
 // Colours
-$background-color: #393f37;
-$yellow: #cb9947;
+$dark-bg: #0f1911;
+$light-bg: #1e2514;
+$black: #130e0a;
+$green: #667f61;
+$teal: #92bca0;
+$white: #f4ecd6;
+$salmon: #f4805c;
 $gold: linear-gradient(to right, #cc9a49, #f6dc81, #cc9a49, #f6dc81, #cc9a49);
+$yellow: #cb9947;
 
 // Fonts
 $title-font: "Park Lane", cursive;
-$subtitle-font: "Billionaire", cursive;
-$body-font: "Market Deco", sans-serif;
+$subtitle-font: "Market Deco", sans-serif;
+$body-font: "Javanese", serif;
 
 // Device Sizes
 $on-palm: 600px !default;
@@ -44,7 +50,3 @@ $on-laptop: 800px !default;
     @content;
   }
 }
-
-// @mixin relative-font-size($ratio) {
-//   font-size: $base-font-size * $ratio;
-// }
