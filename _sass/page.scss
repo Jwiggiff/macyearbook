@@ -10,7 +10,6 @@
     text-align: center;
     font-size: 4rem;
     margin-bottom: 2rem;
-    // padding: 0 5rem;
     color: $white;
 
     display: flex;
@@ -19,11 +18,6 @@
     align-items: center;
 
     white-space: nowrap;
-
-    // background-clip: text;
-    // -webkit-background-clip: text;
-    // color: transparent;
-    // background-image: $gold;
 
     h1 {
       line-height: 7rem;
@@ -67,7 +61,6 @@
         content: "";
         flex-grow: 1;
         margin-right: 0.25rem;
-        // background-color: black;
         border-bottom: 4px solid $white;
       }
     }
@@ -92,6 +85,41 @@
         line-height: 5rem;
         letter-spacing: 0;
       }
+    }
+  }
+
+  .page-title.event .wrapper {
+    margin-top: 3rem;
+    position: relative;
+    text-shadow: -4px -3px 0 $dark-bg;
+
+    &::before {
+      content: "";
+      background-image: url("/assets/img/banner.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: absolute;
+      bottom: 60%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: 110%;
+      height: 110%;
+      z-index: -1;
+    }
+  }
+
+  .page-title.club .wrapper {
+    padding: 0 4rem;
+    border: 10px solid transparent;
+    border-image-source: url(/assets/img/students-banner.png);
+    border-image-slice: 60 320;
+    border-image-width: 1 5;
+    white-space: initial;
+    max-width: 110%;
+
+    @include media-query($on-palm) {
+      padding: 0 3rem;
+      font-size: 2rem;
     }
   }
 
@@ -328,10 +356,44 @@
       }
     }
   }
-}
 
-// body {
-//   background-image: url(/assets/img/background.jpg);
-//   background-repeat: repeat;
-//   background-size: contain;
-// }
+  section.club {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    // text-align: center;
+
+    // display: flex;
+    // justify-content: center;
+
+    & > div {
+      padding: 1.5rem;
+      // display: inline-block;
+    }
+
+    .members {
+      text-align: right;
+      max-width: 50%;
+      font-size: 1.5rem;
+      // justify-self: right;
+    }
+    .members h2 {
+      font-size: 1.75em;
+      text-decoration: underline;
+    }
+    .members h2:not(:first-of-type) {
+      margin-top: 1rem;
+    }
+    .members ul {
+      list-style: none;
+      margin-left: 1.5rem;
+    }
+
+    .image-container {
+      text-align: left;
+      max-width: 50%;
+    }
+    .image-container img {
+      max-width: 100%;
+    }
+  }
+}

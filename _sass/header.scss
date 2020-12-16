@@ -97,6 +97,13 @@
       padding: 0.5rem 1rem;
       background-color: $white;
       border-radius: 5px;
+
+      li {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
 
     &.active > ul.dropdown {
@@ -106,7 +113,7 @@
     }
   }
 
-  @include media-query($on-laptop) {
+  @include media-query($on-palm) {
     padding: 0 1rem 0 3rem;
 
     label[for="nav-trigger"] {
