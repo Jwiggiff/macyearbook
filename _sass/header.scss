@@ -113,7 +113,7 @@
     }
   }
 
-  @include media-query($on-palm) {
+  @include media-query($on-laptop) {
     padding: 0 1rem 0 3rem;
 
     label[for="nav-trigger"] {
@@ -149,6 +149,10 @@
 
     li {
       margin-bottom: 1rem;
+    }
+
+    .trigger {
+      padding-top: 1rem;
     }
 
     .trigger > li > .page-link::after {

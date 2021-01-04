@@ -279,7 +279,7 @@
       top: 2rem;
       width: 125%;
       height: calc(100% - 3rem);
-      z-index: 99;
+      z-index: 2;
 
       background-image: radial-gradient(
         ellipse at top center,
@@ -358,23 +358,29 @@
   }
 
   section.club {
-    display: grid;
-    grid-template-columns: 50% 50%;
+    // display: grid;
+    // grid-template-columns: 50% 50%;
     // text-align: center;
 
-    // display: flex;
-    // justify-content: center;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
 
     & > div {
+      flex: 1;
       padding: 1.5rem;
       // display: inline-block;
     }
 
     .members {
       text-align: right;
-      max-width: 50%;
+      // max-width: 50%;
       font-size: 1.5rem;
       // justify-self: right;
+
+      @include media-query($on-palm) {
+        text-align: center;
+      }
     }
     .members h2 {
       font-size: 1.75em;
@@ -385,12 +391,11 @@
     }
     .members ul {
       list-style: none;
-      margin-left: 1.5rem;
     }
 
     .image-container {
       text-align: left;
-      max-width: 50%;
+      // max-width: 50%;
     }
     .image-container img {
       max-width: 100%;

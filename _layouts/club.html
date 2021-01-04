@@ -6,4 +6,29 @@ layout: default
   <div class="wrapper">{{ page.title }}</div>
 </h1>
 
-{{ content }}
+<section class="club">
+  <div class="members">
+    {%- assign roles = '' | split: '' -%}
+    {%- for member in site.data[page.file_name] -%}
+      {%- assign role = member.Role -%}
+      {%- assign roles = role | concat: roles -%}
+    {%- endfor -%}
+    {%- assign roles = roles | uniq | reverse -%}
+    {%- for role in roles -%}
+      {%- assign members = site.data[page.file_name] | where: "Role",role | sort_natural -%}
+      <h2>
+        {{- role -}}
+        {%- if members.size > 1 -%}
+          s
+        {%- endif -%}
+      </h2>
+      <ul>
+        {%- for member in members -%}
+          <li>{{- member.Name -}}</li>
+        {%- endfor -%}
+      </ul>
+    {%- endfor -%}
+  </div>
+
+  {{ content }}
+</section>

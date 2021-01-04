@@ -1,32 +1,8 @@
 ---
 title: Mackenzie Coats of Confidence
+file_name: clubs-test
 ---
 
-<section class="club">
-  <div class="members">
-    {%- assign roles = '' | split: '' -%}
-    {%- for member in site.data.clubs-test -%}
-      {%- assign role = member.Role -%}
-      {%- assign roles = role | concat: roles -%}
-    {%- endfor -%}
-    {%- assign roles = roles | uniq | reverse -%}
-    {%- for role in roles -%}
-      {%- assign members = site.data.clubs-test | where: "Role",role | sort_natural -%}
-      <h2>
-        {{- role -}}
-        {%- if members.size > 1 -%}
-          s
-        {%- endif -%}
-      </h2>
-      <ul>
-        {%- for member in members -%}
-          <li>{{- member.Name -}}</li>
-        {%- endfor -%}
-      </ul>
-    {%- endfor -%}
-  </div>
-
-  <div class="image-container">
-    <img src="//via.placeholder.com/1000x1000?text=Club+Logo"/>
-  </div>
-</section>
+<div class="image-container">
+  <img src="//via.placeholder.com/1000x1000?text=Club+Logo"/>
+</div>
