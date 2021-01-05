@@ -21,7 +21,8 @@
 
         {%- for category in categories -%}
           <li>
-            <a class="page-link" href="#">{{ category.label | capitalize }}</a>
+            {%- assign label = category.label | replace: "-"," " | title_case -%}
+            <a class="page-link" href="#">{{ label | capitalize }}</a>
             <ul class="dropdown">
               {%- for page in category.docs -%}
                 {%- if page.title -%}

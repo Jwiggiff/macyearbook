@@ -11,19 +11,20 @@ layout: home
 </div>
 
 <div class="cards">
-  {%- for collection in site.collections -%} {%- for page in collection.docs -%}
-  <a href="{{ page.url | relative_url }}">
-    <div class="card">
-      <div class="stem"></div>
-      <div class="light"></div>
-      <div class="card-bg">
-        <img
-          src="//via.placeholder.com/150x200?text={{ page.title | url_encode }}"
-          alt="{{ page.title }}"
-        />
+  {%- assign collections = site.collections | where_exp: "collection", "collection.label != 'posts'" -%}
+  {%- for collection in collections -%}
+    <a href="{{ collection.label | relative_url }}">
+      <div class="card">
+        <div class="stem"></div>
+        <div class="light"></div>
+        <div class="card-bg">
+          {%- assign label = collection.label | replace: "-"," " | title_case -%}
+          <img
+            src="//via.placeholder.com/150x200?text={{ label | url_encode }}"
+            alt="{{ label }}"
+          />
+        </div>
       </div>
-      <!-- <div class="card-title">{{ page.title }}</div> -->
-    </div>
-  </a>
-  {%- endfor -%} {%- endfor -%}
+    </a>
+  {%- endfor -%}
 </div>

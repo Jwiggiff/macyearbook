@@ -22,7 +22,7 @@ defaults:
 collections_dir: /pages/
 
 collections:
-  academics:
+  student-life:
     output: true
     permalink: /:collection/:name/
   clubs:
