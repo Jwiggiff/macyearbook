@@ -1,5 +1,6 @@
+console.log(document.querySelectorAll(".trigger > li"));
 document.querySelectorAll(".trigger > li").forEach((li) => {
-  li.addEventListener("click", () => {
+  li.addEventListener("click", (e) => {
     li.classList.toggle("active");
     document.querySelectorAll(".trigger > li").forEach((sibling) => {
       if (sibling != li) sibling.classList.remove("active");

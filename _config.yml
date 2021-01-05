@@ -10,13 +10,19 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 defaults:
   - scope:
       path: ""
+      type: "events"
     values:
-      layout: default
+      layout: event
+  - scope:
+      path: ""
+      type: "clubs"
+    values:
+      layout: club
 
 collections_dir: /pages/
 
 collections:
-  academics:
+  student-life:
     output: true
     permalink: /:collection/:name/
   clubs:

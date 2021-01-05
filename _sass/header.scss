@@ -5,6 +5,7 @@
   background-image: $gold;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
   height: 64px;
+  z-index: 99;
 }
 .site-title {
   font-family: $title-font;
@@ -81,6 +82,7 @@
       color: $black;
       font-size: 1.5rem;
       white-space: nowrap;
+      cursor: pointer;
 
       display: flex;
       align-items: center;
@@ -95,6 +97,13 @@
       padding: 0.5rem 1rem;
       background-color: $white;
       border-radius: 5px;
+
+      li {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
 
     &.active > ul.dropdown {
@@ -140,6 +149,10 @@
 
     li {
       margin-bottom: 1rem;
+    }
+
+    .trigger {
+      padding-top: 1rem;
     }
 
     .trigger > li > .page-link::after {
