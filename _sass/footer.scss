@@ -1,5 +1,14 @@
 /* Site Footer */
 .site-footer {
-  position: absolute;
-  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: $white;
+  gap: 1em;
+  padding: 0.25rem;
+  // background: rgba(0,0,0,0.4);
+  background: linear-gradient(to top, rgba(0,0,0,0.2), rgba(0,0,0,0.5));
 }

@@ -18,15 +18,29 @@
       </label>
 
       <div class="trigger">
-
         {%- for category in categories -%}
           <li>
             {%- assign label = category.label | replace: "-"," " | title_case -%}
-            <a class="page-link" href="#">{{ label | capitalize }}</a>
+            <a id="{{ category.label }}" class="page-link" href="javascript:void(0)">{{ label | capitalize }}</a>
             <ul class="dropdown">
+              {%- if category.docs.size > 15 -%}
+                <div class="alpha-links">
+                  {%- assign alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" | split:"" -%}
+                  {%- for letter in alphabet -%}
+                    <a href="#{{ letter }}" class="letter">{{ letter }}</a>
+                  {%- endfor -%}
+                </div>
+              {%- endif -%}
+              {%- assign last_letter = '' -%}
               {%- for page in category.docs -%}
                 {%- if page.title -%}
-                  <li>
+                {%- assign first_letter = page.title | split: '' | first -%}
+                  {%- if category.docs.size > 15 and last_letter != first_letter -%}
+                    {%- assign last_letter = first_letter -%}
+                    <li id="{{ first_letter }}">
+                  {%- else -%}
+                    <li>
+                  {%- endif -%}
                     <a class="page-link" href="{{ page.url | relative_url }}">{{ page.title | capitalize | escape }}</a>
                   </li>
                 {%- endif -%}

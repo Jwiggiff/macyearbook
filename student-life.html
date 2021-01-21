@@ -1,5 +1,26 @@
 ---
 title: Student Life
-layout: collection
+layout: default
 collection: student-life
 ---
+
+<h1 class="page-title">
+  <div class="wrapper">{{ page.title }}</div>
+</h1>
+
+<div class="cards">
+  {%- for page in site[page.collection] -%}
+    <a href="{{ page.url | relative_url }}">
+      <div class="card">
+        <div class="stem"></div>
+        <div class="light"></div>
+        <div class="card-bg">
+          <img
+            src="//via.placeholder.com/150x200?text={{ page.title | url_encode }}"
+            alt="{{ page.title }}"
+          />
+        </div>
+      </div>
+    </a>
+  {%- endfor -%}
+</div>

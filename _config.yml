@@ -3,7 +3,8 @@ description: >- # this means to ignore newlines until "baseurl:"
   Mackenzie's 2020-2021 Yearbook
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-
+author: "Josh Friedman"
+copyright: "&copy; 2020 William Lyon Mackenzie C.I. All Rights Reserved."
 # include:
 #   - _pages
 
@@ -25,12 +26,15 @@ collections:
   student-life:
     output: true
     permalink: /:collection/:name/
+    sort_by: title
   clubs:
     output: true
     permalink: /:collection/:name/
+    sort_by: title
   events:
     output: true
     permalink: /:collection/:name/
+    sort_by: title
 
 # header_pages:
 #   - "_pages/music.html"

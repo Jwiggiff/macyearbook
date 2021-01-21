@@ -97,12 +97,56 @@
       padding: 0.5rem 1rem;
       background-color: $white;
       border-radius: 5px;
+      max-height: 30rem;
+      overflow-y: auto;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: $salmon;
+        border-radius: 30px;
+
+        @include media-query($on-palm) {
+          background: $black;
+        }
+      }
 
       li {
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-top: 0.25rem;
+      }
+
+      .alpha-links {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        position: sticky;
+        top: -0.5rem;
+        margin-top: -0.5rem;
+        padding: inherit;
+        background-color: $white;
+        z-index: 2;
+
+        @include media-query($on-palm) {
+          width: 100vw;
+          margin-left: -1rem;
+          background: $gold center 100vw;
+        }
+
+        a {
+          color: $black;
+          font-family: $subtitle-font;
+
+          &:not([href]) {
+            display: none;
+          }
+        }
       }
     }
 
