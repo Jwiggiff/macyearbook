@@ -27,7 +27,7 @@
                 <div class="alpha-links">
                   {%- assign alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" | split:"" -%}
                   {%- for letter in alphabet -%}
-                    <a href="#{{ letter }}" class="letter">{{ letter }}</a>
+                    <a href="#{{ category.label }}-{{ letter }}" class="letter">{{ letter }}</a>
                   {%- endfor -%}
                 </div>
               {%- endif -%}
@@ -37,7 +37,7 @@
                 {%- assign first_letter = page.title | split: '' | first -%}
                   {%- if category.docs.size > 15 and last_letter != first_letter -%}
                     {%- assign last_letter = first_letter -%}
-                    <li id="{{ first_letter }}">
+                    <li id="{{ category.label }}-{{ first_letter }}">
                   {%- else -%}
                     <li>
                   {%- endif -%}

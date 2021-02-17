@@ -369,23 +369,21 @@
   }
 
   section.club {
-    // display: grid;
-    // grid-template-columns: 50% 50%;
-    // text-align: center;
-
     display: flex;
     flex-flow: wrap;
     justify-content: center;
 
+    @include media-query($on-palm) {
+      flex-flow: column;
+    }
+
     & > div {
       flex: 1;
       padding: 1.5rem;
-      // display: inline-block;
     }
 
     .members {
       text-align: right;
-      // max-width: 100%;
       font-size: 1.5rem;
 
       @include media-query($on-palm) {
@@ -405,7 +403,6 @@
 
     .image-container {
       text-align: left;
-      // max-width: 50%;
     }
     .image-container img {
       max-width: 100%;
@@ -444,5 +441,13 @@
         transform: scale(1.05);
       }
     }
+  }
+
+  .alpha-links {
+    border-radius: 10px;
+    background: $white;
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+    font-size: 2rem;
   }
 }
