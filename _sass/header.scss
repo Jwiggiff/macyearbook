@@ -1,3 +1,22 @@
+/* Keyframes */
+@keyframes dance {
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-15px, 0);
+  }
+  30% {
+    transform: translate(30px, 0);
+  }
+  60% {
+    transform: translate(-30px, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
 /* Site Header */
 .site-header {
   position: relative;
@@ -83,7 +102,6 @@
       font-size: 1.5rem;
       white-space: nowrap;
       cursor: pointer;
-
       display: flex;
       align-items: center;
     }
@@ -97,12 +115,58 @@
       padding: 0.5rem 1rem;
       background-color: $white;
       border-radius: 5px;
+      max-height: 30rem;
+      overflow-y: auto;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: $salmon;
+        border-radius: 30px;
+
+        @include media-query($on-palm) {
+          background: $black;
+        }
+      }
 
       li {
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-top: 0.25rem;
+      }
+
+      .alpha-links {
+        background-color: $white;
+        position: sticky;
+
+        @include media-query($on-palm) {
+          width: 100vw;
+          margin-left: -1rem;
+          background: $gold center 100vw;
+        }
+      }
+
+      a {
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: $salmon;
+        }
+      }
+
+      a[href="/clubs/dance-team/"]:hover {
+        animation: dance 1.5s cubic-bezier(.28,.84,.42,1);
+      }
+      a[href="/clubs/rainbow-club/"]:hover {
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
       }
     }
 

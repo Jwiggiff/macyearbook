@@ -6,9 +6,25 @@ layout: default
   <div class="wrapper">{{ page.title }}</div>
 </h1>
 
+{%- if site[page.collection].size > 15 -%}
+  <div class="alpha-links">
+    {%- assign alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" | split:"" -%}
+    {%- for letter in alphabet -%}
+      <a href="#{{ letter }}" class="letter">{{ letter }}</a>
+    {%- endfor -%}
+  </div>
+{%- endif -%}
+
 <ul class="page-list">
+  {%- assign last_letter = '' -%}
   {%- for page in site[page.collection] -%}
-    <li class="page-item">
+    {%- assign first_letter = page.title | split: '' | first -%}
+    {%- if site[page.collection].size > 15 and last_letter != first_letter -%}
+      {%- assign last_letter = first_letter -%}
+      <li class="page-item" id="{{ first_letter }}">
+    {%- else -%}
+      <li class="page-item">
+    {%- endif -%}
       <a href="{{ page.url | relative_url }}">{{ page.title }}</a>
     </li>
   {%- endfor -%}

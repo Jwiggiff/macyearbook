@@ -15,11 +15,15 @@ layout: default
     {%- endfor -%}
     {%- assign roles = roles | uniq | reverse -%}
     {%- for role in roles -%}
-      {%- assign members = site.data[page.file_name] | where: "Role",role | sort_natural -%}
+      {%- assign members = site.data[page.file_name] | where: "Role",role | uniq | sort_natural -%}
       <h2>
-        {{- role -}}
-        {%- if members.size > 1 -%}
-          s
+        {{- role | replace: '/', '/&#8203;' -}}
+        {%- assign vowels = "a,e,i,o,u" | split: "," -%}
+        {%- assign last_char = role | split: '' | last -%}
+        {%- if members.size > 1 and last_char != 's' and last_char != 'w' -%}
+          {%- unless vowels contains last_char -%}
+            s
+          {%- endunless -%}
         {%- endif -%}
       </h2>
       <ul>
