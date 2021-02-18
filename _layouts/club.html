@@ -13,7 +13,7 @@ layout: default
       {%- assign role = member.Role -%}
       {%- assign roles = role | concat: roles -%}
     {%- endfor -%}
-    {%- assign roles = roles | uniq | reverse -%}
+    {%- assign roles = roles | uniq | reverse | where_exp: "role", "role != 'Member'" | push: "Member" -%}
     {%- for role in roles -%}
       {%- assign members = site.data[page.file_name] | where: "Role",role | uniq | sort_natural -%}
       <h2>
