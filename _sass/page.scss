@@ -100,7 +100,8 @@
     &::before {
       content: "";
       background-image: url("/assets/img/banner.svg");
-      background-size: contain;
+      background-position: top center;
+      background-size: 100% 100%;
       background-repeat: no-repeat;
       position: absolute;
       bottom: 60%;
@@ -453,5 +454,21 @@
     margin-bottom: 2rem;
     padding: 1rem 0;
     font-size: 2rem;
+  }
+
+  section.drama-show {
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    h2 {
+      font-size: 3em;
+    }
+
+    iframe {
+      margin: 1rem 0;
+      display: block;
+    }
   }
 }
