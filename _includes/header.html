@@ -32,8 +32,7 @@
                 </div>
               {%- endif -%}
               {%- assign last_letter = '' -%}
-              {%- assign docs = category.docs | sort_natural -%}
-              {%- for page in docs -%}
+              {%- for page in category.docs -%}
                 {%- if page.title -%}
                   {%- assign first_letter = page.title | split: '' | first -%}
                   {%- if category.docs.size > 15 and last_letter != first_letter -%}
