@@ -32,16 +32,17 @@
                 </div>
               {%- endif -%}
               {%- assign last_letter = '' -%}
-              {%- for page in category.docs -%}
+              {%- assign docs = category.docs | sort_natural -%}
+              {%- for page in docs -%}
                 {%- if page.title -%}
-                {%- assign first_letter = page.title | split: '' | first -%}
+                  {%- assign first_letter = page.title | split: '' | first -%}
                   {%- if category.docs.size > 15 and last_letter != first_letter -%}
                     {%- assign last_letter = first_letter -%}
                     <li id="{{ category.label }}-{{ first_letter }}">
                   {%- else -%}
                     <li>
                   {%- endif -%}
-                    <a class="page-link" href="{{ page.url | relative_url }}">{{ page.title | capitalize | escape }}</a>
+                  <a class="page-link" href="{{ page.url | relative_url }}">{{ page.title | capitalize | escape }}</a>
                   </li>
                 {%- endif -%}
               {%- endfor -%}

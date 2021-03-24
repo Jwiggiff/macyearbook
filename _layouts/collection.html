@@ -17,7 +17,8 @@ layout: default
 
 <ul class="page-list">
   {%- assign last_letter = '' -%}
-  {%- for page in site[page.collection] -%}
+  {%- assign docs = site[page.collection] | sort_natural -%}
+  {%- for page in docs -%}
     {%- assign first_letter = page.title | split: '' | first -%}
     {%- if site[page.collection].size > 15 and last_letter != first_letter -%}
       {%- assign last_letter = first_letter -%}

@@ -10,7 +10,7 @@ layout: default
   <div class="members">
     {%- assign roles = '' | split: '' -%}
     {%- for member in site.data[page.file_name] -%}
-      {%- assign role = member.Role -%}
+      {%- assign role = member.role -%}
       {%- assign roles = role | concat: roles -%}
     {%- endfor -%}
     {%- assign roles = roles | uniq | reverse -%}
@@ -18,10 +18,10 @@ layout: default
       {%- assign roles = roles | where_exp: "role", "role != 'Member'" | push: "Member" -%}
     {%- endif -%}
     {%- for role in roles -%}
-      {%- assign members = site.data[page.file_name] | where: "Role",role | uniq | sort_natural -%}
+      {%- assign members = site.data[page.file_name] | where: "role",role | uniq | sort_natural -%}
       <h2>
         {{- role | replace: '/', '/&#8203;' -}}
-        {%- assign vowels = "a,e,i,o,u" | split: "," -%}
+        {%- assign vowels = "a,i,o,u" | split: "," -%}
         {%- assign last_char = role | split: '' | last -%}
         {%- if members.size > 1 and last_char != 's' and last_char != 'w' -%}
           {%- unless vowels contains last_char -%}
@@ -31,11 +31,17 @@ layout: default
       </h2>
       <ul>
         {%- for member in members -%}
-          <li>{{- member.Name -}}</li>
+          <li>{{- member.name -}}</li>
         {%- endfor -%}
       </ul>
     {%- endfor -%}
   </div>
 
-  {{ content }}
+  {%- assign path = "/assets/img/" | append: page.file_name -%}
+  {%- assign images = site.static_files | where_exp: "file","file.path contains path" -%}
+  {%- for image in images -%}
+    <div class="image-container">
+      <img src="{{ image.path | relative_url }}" />
+    </div>
+  {%- endfor -%}
 </section>
