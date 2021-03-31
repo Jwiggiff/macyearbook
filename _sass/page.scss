@@ -165,13 +165,10 @@
     }
 
     @include media-query($on-palm) {
-      @for $i from 1 through 8 {
-        .col-#{$i},
-        row-#{$i} {
-          grid-column: span 1;
-          grid-row: span 1;
-        }
-      }
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      gap: 2rem;
     }
   }
 
@@ -470,5 +467,9 @@
       margin: 1rem 0;
       display: block;
     }
+  }
+
+  section.lyons-huddle {
+    text-align: center;
   }
 }

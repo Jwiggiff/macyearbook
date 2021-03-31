@@ -34,9 +34,8 @@ const names = [
 ];
 let currentIndex = 0;
 document.querySelector('.site-footer p:last-child span')
-  .addEventListener('wheel', (e) => {
+  .addEventListener('click', (e) => {
     e.preventDefault();
-    currentIndex += e.deltaY < 0 ? -1 : 1;
-    currentIndex = Math.max(0, Math.min(names.length-1, currentIndex));
-    e.target.innerText = names[currentIndex];
+    currentIndex += 1;
+    e.target.innerText = names[currentIndex % names.length];
   });
