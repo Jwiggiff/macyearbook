@@ -128,7 +128,7 @@
     }
   }
 
-  .grid {
+  .showcase-grid {
     display: grid;
     // grid-template-columns: repeat(var(--num-cols, 1), 1fr);
     // grid-template-columns: repeat(auto-fit, minmax(100px, 12.5%));
@@ -323,6 +323,10 @@
   figure {
     position: relative;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: min-content;
     height: min-content;
 
     img,
@@ -364,6 +368,13 @@
         }
       }
     }
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    place-items: normal center;
   }
 
   section.club {
