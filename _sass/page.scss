@@ -479,4 +479,54 @@
       display: block;
     }
   }
+
+  section.grad-plans {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    place-items: center;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .modal {
+    display: none;
+    place-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 99;
+
+    &.visible {
+      display: grid;
+    }
+
+    .close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      font-size: 4rem;
+      line-height: 1;
+      width: 4rem;
+      height: 4rem;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+    }
+
+    .modal-content {
+      width: 100%;
+      max-width: 800px;
+      padding: 2rem;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
 }

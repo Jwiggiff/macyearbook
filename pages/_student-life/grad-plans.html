@@ -1,0 +1,31 @@
+---
+title: Grad Plans
+layout: showcase
+---
+
+<section class="grad-plans">
+  {%- assign path = "/assets/img/grad" -%}
+  {%- assign images = site.static_files | where_exp:"file","file.path contains path" -%}
+  {%- for img in images -%}
+    <img src="{{ img.path | relative_url }}" />
+  {%- endfor -%}
+</section>
+
+<div class="modal">
+  <span class="close">&times;</span>
+  <div class="modal-content"></div>
+</div>
+
+<script>
+  const modal = document.querySelector(".modal");
+  const modalContent = document.querySelector(".modal-content");
+  document.querySelectorAll("img").forEach((img) => {
+    img.addEventListener("click", (e) => {
+      modalContent.innerHTML = e.target.outerHTML;
+      modal.classList.toggle("visible");
+    });
+  });
+  modal.addEventListener("click", (e) => {
+    if(e.target === modal || e.target === document.querySelector(".close")) modal.classList.toggle("visible");
+  });
+</script>
