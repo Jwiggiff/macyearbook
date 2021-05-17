@@ -1,4 +1,4 @@
 ---
-title: Chemsitry Club
+title: Chemistry Club
 file_name: chemistry-club
 ---
