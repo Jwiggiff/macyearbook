@@ -20,7 +20,7 @@ layout: home
         <div class="card-bg">
           {%- assign label = collection.label | replace: "-"," " | title_case -%}
           <img
-            src="//via.placeholder.com/150x200?text={{ label | url_encode }}"
+            src="/assets/img/{{ label | slugify }}.png"
             alt="{{ label }}"
           />
         </div>
