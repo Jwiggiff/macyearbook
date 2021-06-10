@@ -37,11 +37,16 @@ layout: default
     {%- endfor -%}
   </div>
 
-  {%- assign path = "/assets/img/" | append: page.file_name -%}
+  {%- assign path = "/assets/img/club photos/" | append: page.file_name -%}
   {%- assign images = site.static_files | where_exp: "file","file.path contains path" -%}
-  {%- for image in images -%}
-    <div class="image-container">
-      <img src="{{ image.path | relative_url }}" />
+  {%- if images.size > 0 -%}
+    <h1 class="gallery-title">Gallery</h1>
+    <div class="gallery">
+      {%- for image in images -%}
+        <div class="image-container">
+          <img src="{{ image.path | relative_url }}" />
+        </div>
+      {%- endfor -%}
     </div>
-  {%- endfor -%}
+  {%- endif -%}
 </section>
