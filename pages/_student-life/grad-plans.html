@@ -4,7 +4,7 @@ layout: showcase
 ---
 
 <section class="grad-plans">
-  {%- assign path = "/assets/img/grad" -%}
+  {%- assign path = "/assets/img/grads/" -%}
   {%- assign images = site.static_files | where_exp:"file","file.path contains path" -%}
   {%- for img in images -%}
     <img loading="lazy" src="{{ img.path | relative_url }}" />
