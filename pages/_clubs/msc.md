@@ -1,4 +1,4 @@
 ---
-title: Science Club
+title: Mackenzie Science Club
 file_name: msc
 ---
