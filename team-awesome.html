@@ -1,0 +1,30 @@
+---
+title: Super Secret Team Awesome
+permalink: /team-awesome/
+layout: default
+---
+
+<h1 class="page-title">
+  <div class="wrapper">
+    <span>Team</span>
+    <span>Awesome</span>
+  </div>
+</h1>
+
+<div class="team-awesome">
+  <img src="/assets/img/team awesome/YB TEAM AWESOME.PNG">
+  <img src="/assets/img/team awesome/Yearbook Team Photo.png">
+  <img src="/assets/img/team awesome/TeamAwesomeWithMia.png">
+  <img src="/assets/img/team awesome/IMG_20210602_150602.jpg">
+  <img src="/assets/img/team awesome/IMG_20210602_150632.jpg">
+</div>
+
+<script>
+  const a = "ZXZvTWR1dFM=";
+  let pass = prompt("Please enter the password:");
+  if(pass == atob(a).split('').reverse().join('')) {
+    document.querySelector(".team-awesome").style.display = "block";
+  } else {
+    window.location = "/";
+  }
+</script>
