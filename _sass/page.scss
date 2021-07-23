@@ -322,6 +322,11 @@
     max-width: min-content;
     height: min-content;
 
+    img {
+      height: 100%;
+      min-width: 100%;
+    }
+
     figcaption {
       background-color: $white;
       display: inline-flex;
